@@ -11,3 +11,7 @@
 /tafjeemix-ejb/.settings
 /tafjeemix-war/.settings
 /tafjeemix-demojar/target
+/tafjeemix-tcomponent/build
+/tafjeemix-tcomponent/bin
+/tafjeemix-tcomponent/velocity.log
+/tafjeemix-tcomponent/target

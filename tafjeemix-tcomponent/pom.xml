@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sandbox</groupId>
+  <artifactId>tafjeemix-tcomponent</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>tafjeemix-tcomponent</name>
+  <description>The jBC component jar project</description>
+  
+  <build>
+	<plugins>
+		<plugin>
+			<groupId>org.codehaus.mojo</groupId>
+			<artifactId>build-helper-maven-plugin</artifactId>
+            <version>1.7</version>
+			<executions>
+				<execution>
+					<phase>process-sources</phase>
+					<goals><goal>add-source</goal></goals>
+					<configuration>
+						<sources>
+							<source>${project.basedir}/build/tafjjava</source>
+                            <source>${project.basedir}/src/generated/t24service/javaAPI</source>
+						</sources>
+					</configuration>
+				</execution>
+			</executions>
+		</plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.7</version>
+            <executions>
+                <execution>
+                    <id>generate-sources</id>
+                    <phase>generate-sources</phase>
+                    <configuration>
+                        <target>
+                            <ant antfile="${basedir}/build.xml">
+                                <target name="build"/>
+                            </ant>
+                        </target>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+                <execution>
+                    <id>clean</id>
+                    <phase>clean</phase>
+                    <configuration>
+                        <target>
+                            <ant antfile="${basedir}/build.xml">
+                                <target name="clean"/>
+                            </ant>
+                        </target>
+                    </configuration>
+                    <goals>
+                        <goal>run</goal>
+                    </goals>
+                </execution>
+            </executions>
+        </plugin>				
+	</plugins>
+  </build>
+  
+  <dependencies>
+	<dependency>
+		<groupId>com.temenos</groupId>
+		<artifactId>tafj-common</artifactId>
+		<version>dev</version>
+	</dependency>
+	<dependency>
+		<groupId>com.temenos</groupId>
+		<artifactId>tafj-core</artifactId>
+		<version>dev</version>
+	</dependency>
+	<dependency>
+		<groupId>com.temenos</groupId>
+		<artifactId>tafj-locking</artifactId>
+		<version>dev</version>
+	</dependency>
+	<dependency>
+		<groupId>com.temenos</groupId>
+		<artifactId>component-framework</artifactId>
+		<version>dev</version>
+	</dependency>
+  </dependencies>
+</project>

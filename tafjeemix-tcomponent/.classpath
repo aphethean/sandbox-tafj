@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src/main/java"/>
+	<classpathentry kind="lib" path="classes"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/projects/T24/TAFJ/TAFJ_DEV/lib/TAFJCore.jar"/>
+	<classpathentry kind="lib" path="C:/projects/T24/TAFJ/TAFJ_DEV/lib/TAFJCommon.jar"/>
+	<classpathentry kind="lib" path="C:/projects/T24/TAFJ/TAFJ_DEV/ext/TAFJBASIC.jar"/>
+	<classpathentry kind="lib" path="C:/projects/T24/TAFJ/TAFJ_DEV/ext/jms.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

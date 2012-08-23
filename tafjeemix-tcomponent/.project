@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>tafjeemix-tcomponent</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.temenos.tafj.builder.TAFJBasicBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>com.temenos.tafj.builder.TAFJBasicMover</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.temenos.tafj.builder.TAFJBasicNature</nature>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>classes</name>
+			<type>2</type>
+			<location>C:/projects/T24/TAFJ/TAFJ_DEV/data/tafjeemix-tcomponent/classes</location>
+		</link>
+		<link>
+			<name>java</name>
+			<type>2</type>
+			<location>C:/projects/T24/TAFJ/TAFJ_DEV/data/tafjeemix-tcomponent/java</location>
+		</link>
+	</linkedResources>
+</projectDescription>
