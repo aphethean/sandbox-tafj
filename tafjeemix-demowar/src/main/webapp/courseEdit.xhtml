@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fc="http://java.sun.com/jsf/composite/fluttercode/component"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<f:metadata>
+			<f:viewParam name="courseId" value="#{courseHome.id}" />
+			<f:event type="preRenderView" listener="#{courseHome.init(true)}" />
+		</f:metadata>
+
+		<h:form>
+			<fc:panel
+				caption="#{courseHome.course.code} - #{courseHome.course.title}">
+				<fc:property caption="Id">
+					<h:outputText value="#{courseHome.course.id}" styleClass="value" />
+				</fc:property>
+
+				<fc:property caption="Code">
+					<h:inputText value="#{courseHome.course.code}" styleClass="value"
+						id="code" />
+					<h:message for="code" styleClass="errorMessage" />
+				</fc:property>
+				<fc:property caption="Title">
+					<h:inputText value="#{courseHome.course.title}" styleClass="value"
+						id="title" />
+					<h:message for="title" styleClass="errorMessage" />
+				</fc:property>
+				<fc:property caption="Teacher">
+					<h:selectOneMenu value="#{courseHome.teacherId}" id="teacher">
+						<f:selectItems value="#{teacherItems}" />
+					</h:selectOneMenu>
+					<h:message for="teacher" styleClass="errorMessage" />
+				</fc:property>
+			</fc:panel>
+
+			<h:commandButton action="#{courseHome.save}" value="Save"
+				style="margin-right : 12px" />
+			<h:commandButton action="#{courseHome.cancel}" value="Cancel"
+				immediate="true" />
+		</h:form>
+	</ui:define>
+</ui:composition>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fc="http://java.sun.com/jsf/composite/fluttercode/component"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<f:metadata>
+			<f:viewParam name="courseId" value="#{courseHome.id}" />
+			<f:event type="preRenderView" listener="#{courseHome.init(false)}" />
+		</f:metadata>
+		<h:form>
+			<fc:panel
+				caption="#{courseHome.course.code} - #{courseHome.course.title}">
+				<fc:property caption="Id">#{courseHome.course.id}</fc:property>
+				<fc:property caption="Code">#{courseHome.course.code}</fc:property>
+				<fc:property caption="Title">#{courseHome.course.title}</fc:property>
+				<fc:property caption="Teacher">
+					<h:link outcome="personView"
+						value="#{courseHome.course.teacher.name}" styleClass="value">
+						<f:param name="personId" value="#{courseHome.course.teacher.id}" />
+					</h:link>
+				</fc:property>
+
+
+				<fc:auditInfo entity="#{courseHome.course}" captionClass="caption"
+					valueClass="value" />
+
+				<h:button outcome="home" value="Back to List"
+					style="margin-right : 24px" />
+				<h:button outcome="courseEdit" value="Edit Course">
+					<f:param name="courseId" value="#{courseHome.course.id}" />
+				</h:button>
+
+
+			</fc:panel>
+
+			<fc:panel caption="Students Enrolled">
+
+				<h:dataTable styleClass="dataTable" value="#{courseHome.students}"
+					var="v_student">
+					<h:column>
+							(<h:link outcome="personView" value="details">
+							<f:param name="personId" value="#{v_student.id}" />
+						</h:link>)
+				</h:column>
+
+					<h:column>
+						<f:facet name="header">First Name</f:facet>
+						<h:outputText value="#{v_student.firstName}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">Last Name</f:facet>
+						<h:outputText value="#{v_student.lastName}" />
+					</h:column>
+
+					<h:column>
+						<f:facet name="header">GPA</f:facet>
+						<h:outputText value="#{v_student.gpa}" />
+					</h:column>
+
+				</h:dataTable>
+			</fc:panel>
+		</h:form>
+	</ui:define>
+</ui:composition>

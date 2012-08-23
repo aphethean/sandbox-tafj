@@ -1,3 +1,13 @@
 
 /tafjeemix-ear/target
 /tafjeemix-ejb/target
+/tafjeemix-demoejb/target
+/tafjeemix-tcomponent/src/generated
+/tafjeemix-demowar/target
+/tafjeemix-war/target
+/tafjeemix-demoejb/.settings
+/tafjeemix-demowar/.settings
+/tafjeemix-ear/.settings
+/tafjeemix-ejb/.settings
+/tafjeemix-war/.settings
+/tafjeemix-demojar/target

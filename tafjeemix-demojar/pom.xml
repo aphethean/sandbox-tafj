@@ -1,0 +1,29 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.sandbox</groupId>
+  <artifactId>tafjeemix-demojar</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>tafjeemix-demojar</name>
+  <description>The model classes used by demowar and demoejb</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>javax</groupId>
+  		<artifactId>javaee-api</artifactId>
+  		<version>6.0</version>
+  		<scope>provided</scope>
+  	</dependency>
+        <!--
+            Default Implementation that carries additional validators. Should be
+            removed in the event of the server using an alternate validations
+            implementation since the proprietary ones in hibernate won't be
+            available anymore
+        -->
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.0.0.GA</version>
+            <scope>provided</scope>
+        </dependency>
+  </dependencies>
+</project>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:fc="http://java.sun.com/jsf/composite/fluttercode/component"
+	template="/WEB-INF/templates/template.xhtml">
+	<ui:define name="content">
+		<f:metadata>
+			<f:viewParam name="personId" value="#{personHome.id}" />
+			<f:viewParam name="type" value="#{personHome.newType}" />
+			<f:event type="preRenderView" listener="#{personHome.init(true)}" />
+		</f:metadata>
+		<h:form id="personEdit">
+			<fc:panel>
+
+				<h1><h:outputText value="Edit : #{personHome.person.name}"
+					rendered="#{personHome.managed}" /> <h:outputText
+					value="Create New #{personHome.isStudent ? 'Student' : 'Teacher'}"
+					rendered="#{!personHome.managed}" /></h1>
+
+
+				<fc:property caption="Id">#{personHome.person.id}</fc:property>
+				
+				<fc:property caption="First Name">
+					<h:inputText value="#{personHome.person.firstName}" id="firstName"
+						styleClass="value" />
+					<h:message for="firstName" styleClass="errorMessage" />
+				</fc:property>
+
+				<fc:property caption="Last Name">
+					<h:inputText value="#{personHome.person.lastName}" id="lastName"
+						styleClass="value" />
+					<h:message for="lastName" styleClass="errorMessage" />
+				</fc:property>
+
+
+				<fc:property caption="GPA" rendered="#{personHome.isStudent}">					
+					<h:inputText value="#{personHome.student.gpa}" styleClass="value"
+						id="gpa" />
+					<h:message for="gpa" styleClass="errorMessage" />
+				</fc:property>
+
+				<h:panelGrid columns="3" rendered="#{personHome.isStudent}">
+					<h:outputText value="Available Courses" />
+					<h:outputText value="" />
+					<h:outputText value="Enrolled Courses" />
+					<h:selectManyListbox
+						value="#{courseAssignment.selectedAvailableCourses}"
+						style="height : 120px">
+						<f:selectItems value="#{courseAssignment.availableCoursesItems}" />
+					</h:selectManyListbox>
+					<h:panelGroup layout="block">
+						<h:commandButton value="Add >>" style="width : 100px;margin : 4px"
+							actionListener="#{courseAssignment.addStudentToSelectedCourses}">
+						</h:commandButton>
+						<br />
+						<h:commandButton value="&lt;&lt; Remove"
+							action="#{courseAssignment.removeStudentFromSelectedCourses}"
+							style="width : 100px;margin : 4px" />
+					</h:panelGroup>
+					<h:selectManyListbox
+						value="#{courseAssignment.selectedEnrolledCourses}"
+						style="height : 120px">
+						<f:selectItems value="#{courseAssignment.enrolledCoursesItems}" />
+					</h:selectManyListbox>
+
+				</h:panelGrid>
+			</fc:panel>
+
+
+
+			<h:commandButton action="#{personHome.save}" value="Save"
+				style="margin-right : 12px" />
+
+			<h:commandButton action="#{personHome.cancel}" value="Cancel"
+				immediate="true" />
+		</h:form>
+	</ui:define>
+</ui:composition>
