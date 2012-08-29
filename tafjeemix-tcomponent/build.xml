@@ -32,7 +32,7 @@
 		<fileset dir="${lib.dir}" includes="apiGen.jar" />
 	</path>
 	<path id="tcompiler.classpath">
-		<fileset dir="${lib.dir}" includes="**/*.jar" />
+		<fileset dir="${tafj.lib.dir}" includes="**/*.jar" />
 		<path refid="javac.classpath" />
 	</path>
 
@@ -78,7 +78,7 @@
             <sysproperty key="temn.tafj.directory.classes" value="${build.dir}/tafjclasses" />
             <sysproperty key="temn.tafj.directory.insert" value="${src.generated.jbcinsert.dir};${src.generated.jbcapi.dir}" />
             <!-- all our dependent subroutines -->
-            <sysproperty key="temn.tafj.directory.precompile" value="${dependencies.dir}/tComponentFramework.jar" />
+            <sysproperty key="temn.tafj.directory.precompile" value="${lib.dir}/tComponentFramework.jar" />
             <sysproperty key="temn.tafj.compiler.no.dependency" value="false" />
             <sysproperty key="temn.tafj.compiler.keep.java" value="true" />
             <sysproperty key="temn.tafj.compiler.insert.name.any" value="false" />

@@ -11,13 +11,15 @@ the same datasource and commits the work in one transaction.
 
 ## Building
 
-We must install our dependencies in the local maven repository as we don't publish these dependencies currently
-mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-common -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/TAFJCommon.jar -DgeneratePom=true
-mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-core -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/TAFJCore.jar -DgeneratePom=true
-mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-locking -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/TAFJLocking.jar -DgeneratePom=true
-mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-collectorclient -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/T24CollectorClient.jar -DgeneratePom=true
-mvn install:install-file -DgroupId=com.temenos -DartifactId=component-framework -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/tComponentFramework.jar -DgeneratePom=true
-mvn install:install-file -DgroupId=com.temenos -DartifactId=tafc-jremote -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/jremote.jar -DgeneratePom=true
+We want to use maven to compile our tcomponent jar into a project.  Therefore we need to 
+install our dependencies in the local maven repository as we don't publish these dependencies currently.
+NB - set TAFJ_HOME first
+mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-common -Dversion=dev -Dpackaging=jar -Dfile=%TAFJ_HOME%/lib/TAFJCommon.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-core -Dversion=dev -Dpackaging=jar -Dfile=%TAFJ_HOME%/lib/TAFJCore.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-locking -Dversion=dev -Dpackaging=jar -Dfile=%TAFJ_HOME%/lib/TAFJLocking.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-collectorclient -Dversion=dev -Dpackaging=jar -Dfile=%TAFJ_HOME%/lib/T24CollectorClient.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.temenos -DartifactId=tafc-jremote -Dversion=dev -Dpackaging=jar -Dfile=%TAFJ_HOME%/lib/jremote.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.temenos -DartifactId=component-framework -Dversion=dev -Dpackaging=jar -Dfile=./tafjeemix-tcomponent/lib/tComponentFramework.jar -DgeneratePom=true
 
 $ cd tafjeemix-parent
 $ mvn clean install
