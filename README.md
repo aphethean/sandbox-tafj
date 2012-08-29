@@ -56,7 +56,8 @@ install our dependencies in the local maven repository as we don't publish these
 
 This example uses an ant build task to call apigen and the TAFJ compiler (as this was already available), but we then use
 maven to compile & package the generated jBC, Java, and TAFJ generated Java into a simple jar.  The JUnit test (the main
-execution of this example) is run during the test phase.
+execution of this example) is run during the test phase.  You'll need to be running H2 and have a file called FBNK.CUSTOMER
+in your database for the tests to pass (slap on the wrist for not creating the test as a separate integration test target).
 
 	$ cd tafjeemix-tcomponent
 	$ mvn clean install
