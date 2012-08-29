@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Properties>
-<Property key="tafj.home" value="C:\projects\T24\TAFJ\TAFJ_DEV"/>
-<Property key="temn.tafj.config.file" value="C:\projects\T24\TAFJ\TAFJ_DEV\conf\tafjeemix-tcomponent.properties"/>
-<Property key="temn.tafj.project.default" value="false"/>
-<Property key="temn.tafj.basic.builder.ver" value="3.0.0"/>
-<Property key="temn.tafj.trace.properties.file" value="C:\projects\T24\TAFJ\TAFJ_DEV\conf\TAFJTrace.properties"/>
-</Properties>

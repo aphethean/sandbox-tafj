@@ -15,7 +15,9 @@ We must install our dependencies in the local maven repository as we don't publi
 mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-common -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/TAFJCommon.jar -DgeneratePom=true
 mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-core -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/TAFJCore.jar -DgeneratePom=true
 mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-locking -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/TAFJLocking.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.temenos -DartifactId=tafj-collectorclient -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/T24CollectorClient.jar -DgeneratePom=true
 mvn install:install-file -DgroupId=com.temenos -DartifactId=component-framework -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/tComponentFramework.jar -DgeneratePom=true
+mvn install:install-file -DgroupId=com.temenos -DartifactId=tafc-jremote -Dversion=dev -Dpackaging=jar -Dfile=./dependencies/jremote.jar -DgeneratePom=true
 
 $ cd tafjeemix-parent
 $ mvn clean install

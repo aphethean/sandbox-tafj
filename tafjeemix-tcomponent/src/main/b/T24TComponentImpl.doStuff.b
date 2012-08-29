@@ -24,9 +24,17 @@
     RETURN
 *------------------------------------------------------------------------------
 process:* Let's do some stuff
-    OPEN "F.CUSTOMER" TO FILEVAR ELSE STUFF.ERROR="Could not open F.CUSTOMER"
-    WRITE student TO FILEVAR,name ON ERROR
-        STUFF.ERROR="Write failed"
+    FILENAME="FBNK.CUSTOMER"
+    OPEN FILENAME TO FILEVAR THEN
+        IF student="Guy" THEN
+            STUFF.ERROR="This student was not accepted."
+        END ELSE
+            WRITE student TO FILEVAR,name ON ERROR
+                STUFF.ERROR="Write failed"
+            END
+        END
+    END ELSE 
+        STUFF.ERROR="Could not open ":FILENAME
     END
 *
     RETURN
@@ -45,12 +53,16 @@ finalise:* Set and return responseDetails with warnings or errors.
     IF STUFF.ERROR="" THEN
         responseDetails.returnCode="SUCCESS"
     END ELSE
-        responseDetails.returnCode="FAILURE"        
+        responseList=""
         response.messageCode=101
         response.messageType="FATAL.ERROR"
         response.messageText=STUFF.ERROR
         response.messageInfo=""
-        responseDetails.responses=response
+        response=response.messageCode:VM:response.messageType:VM:response.messageText:VM:response.messageInfo
+        responseList<-1>=response
+
+        responseDetails.returnCode="FAILURE"    
+        responseDetails.responses=LOWER(responseList)
     END
 *
     RETURN
